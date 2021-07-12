@@ -1,0 +1,14 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="你好，欢迎来到\n智慧农业灌溉控制系统\n
+精准环境监测、智能自动控制、实时视频监控、\n海量农情农技，助力打造智能化农场\n
+实现农业大田生成的智能化、自动化"
+        android:gravity="center"
+        />
+</LinearLayout>

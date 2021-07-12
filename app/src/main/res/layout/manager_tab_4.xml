@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="10dp"
+    android:orientation="vertical">
+    <Spinner
+        android:id="@+id/tab_4_spinner"
+        android:layout_marginTop="10dp"
+        style="@style/manager_spinner_title" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/line"
+        android:orientation="horizontal">
+        >
+
+        <TextView
+            android:text="项目名称"
+            style="@style/manager_tab_title"
+            />
+        <TextView
+            android:text="名称/数量"
+            style="@style/manager_tab_title"
+            />
+        <TextView
+            android:text="名称/数量"
+            style="@style/manager_tab_title"
+            />
+        <TextView
+            android:text="名称/数量"
+            style="@style/manager_tab_title"
+            />
+        <TextView
+            android:text="名称/数量"
+            style="@style/manager_tab_title"
+            />
+        <TextView
+            android:text="名称/数量"
+            style="@style/manager_tab_title"
+            />
+
+        <TextView
+            android:text="施肥日期"
+            style="@style/manager_tab_title"
+            />
+    </LinearLayout>
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.scwang.smart.refresh.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tab_4_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="@color/main_bg"
+            android:fadingEdge="none"
+            android:listSelector="@drawable/dialogue_listview_selector"
+            android:scrollbars="none" />
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+</LinearLayout>

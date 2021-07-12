@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="nitrogenFertilizer">
+        <item>氮肥1</item>
+        <item>氮肥2</item>
+        <item>氮肥3</item>
+        <item>氮肥4</item>
+        <item>氮肥5</item>
+    </string-array>
+
+    <string-array name="phosphateFertilizer">
+        <item>磷肥1</item>
+        <item>磷肥2</item>
+        <item>磷肥3</item>
+        <item>磷肥4</item>
+        <item>磷肥5</item>
+    </string-array>
+
+    <string-array name="potashFertilizer">
+        <item>钾肥1</item>
+        <item>钾肥2</item>
+        <item>钾肥3</item>
+        <item>钾肥4</item>
+        <item>钾肥5</item>
+    </string-array>
+
+    <string-array name="compoundFertilizer">
+        <item>复合肥1</item>
+        <item>复合肥2</item>
+        <item>复合肥3</item>
+        <item>复合肥4</item>
+        <item>复合肥5</item>
+    </string-array>
+
+    <string-array name="otherFertilizers">
+        <item>其他肥1</item>
+        <item>其他肥2</item>
+        <item>其他肥3</item>
+        <item>其他肥4</item>
+        <item>其他肥5</item>
+    </string-array>
+</resources>

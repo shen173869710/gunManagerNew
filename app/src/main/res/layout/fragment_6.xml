@@ -1,0 +1,16 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="10dp"
+    >
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_6_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/main_bg"
+        android:scrollbars="none"
+        android:fadingEdge="none"
+        android:listSelector="@drawable/dialogue_listview_selector" />
+</RelativeLayout>

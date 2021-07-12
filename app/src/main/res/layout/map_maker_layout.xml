@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingBottom="30dp"
+    android:paddingRight="10dp"
+    android:background="@mipmap/market_bg"
+    >
+    <TextView
+        android:id="@+id/item_project"
+        style="@style/map_item"
+        />
+    <TextView
+        android:id="@+id/item_address"
+        style="@style/map_item"
+        />
+    <TextView
+        android:id="@+id/item_local"
+        style="@style/map_item"
+        />
+
+    <TextView
+        android:id="@+id/item_raisecrops"
+        style="@style/map_item"
+        />
+    <TextView
+        android:id="@+id/item_varieties"
+        style="@style/map_item"
+        />
+    <TextView
+        android:id="@+id/item_plantingarea"
+        style="@style/map_item"
+        />
+    <TextView
+        android:id="@+id/item_name"
+        style="@style/map_item"
+        />
+    <TextView
+        android:id="@+id/item_phone"
+        style="@style/map_item"
+        />
+
+    <TextView
+        android:id="@+id/item_pram"
+        style="@style/map_item"
+        />
+    <TextView
+        android:id="@+id/item_pileOutNum"
+        style="@style/map_item"
+        />
+</LinearLayout>
