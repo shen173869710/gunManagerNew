@@ -268,7 +268,8 @@ public class MessageParse {
          */
         GroupInfo info = GroupInfoSql.getRunGroup();
         if(info != null) {
-            FloatStatusUtil.getInstance().onGroupStatusEvent(info);
+//            FloatStatusUtil.getInstance().onGroupStatusEvent(info);
+            EventBus.getDefault().post(new AutoTimeEvent(info,true));
         }
     }
 
@@ -279,6 +280,5 @@ public class MessageParse {
         LogUtils.i(TAG, "收到自动轮灌------------时间信息同步");
         EventBus.getDefault().post(new AutoTimeEvent(groupInfo));
         /*****同步自动轮灌时间******/
-        FloatStatusUtil.getInstance().onAutoCountEvent(groupInfo);
     }
 }

@@ -26,6 +26,7 @@ import com.auto.di.guan.manager.floatWindow.FloatWindow;
 import com.auto.di.guan.manager.floatWindow.MoveType;
 import com.auto.di.guan.manager.floatWindow.Screen;
 import com.github.lzyzsd.circleprogress.DonutProgress;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -162,6 +163,7 @@ public class FloatStatusUtil {
      * @param info
      */
     private void initProgess(GroupInfo info) {
+        LogUtils.i(TAG, "initProgess ="+new Gson().toJson(info));
         if (info != null && info.getGroupStatus() == Entiy.GROUP_STATUS_OPEN) {
             groupInfo = info;
             if (donutProgress != null) {

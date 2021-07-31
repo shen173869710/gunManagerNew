@@ -8,7 +8,9 @@ import androidx.fragment.app.FragmentTransaction;
 import com.auto.di.guan.manager.R;
 import com.auto.di.guan.manager.app.BaseApp;
 import com.auto.di.guan.manager.basemodel.presenter.BasePresenter;
+import com.auto.di.guan.manager.db.GroupInfo;
 import com.auto.di.guan.manager.entity.CmdStatus;
+import com.auto.di.guan.manager.event.AutoTimeEvent;
 import com.auto.di.guan.manager.event.DialogEvent;
 import com.auto.di.guan.manager.event.UserStatusEvent;
 import com.auto.di.guan.manager.fragment.ArticleListFragment;
@@ -176,5 +178,20 @@ public class MainActivity extends IBaseActivity {
         }else {
             dismissDialog();
         }
+    }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onAutoTimeEvent(AutoTimeEvent event) {
+        if (event == null || event.getGroupInfo() == null) {
+            LogUtils.e(TAG, " 轮灌时间更新 数据异常");
+            return;
+        }
+        if (event.isAout()) {
+            FloatStatusUtil.getInstance().onGroupStatusEvent(info);
+        }else{
+            FloatStatusUtil.getInstance().onAutoCountEvent(event.getGroupInfo());
+        }
+
     }
 }
