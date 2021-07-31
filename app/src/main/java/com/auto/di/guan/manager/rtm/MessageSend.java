@@ -283,4 +283,13 @@ public class MessageSend {
         info.setIndex(index);
         send(info);
     }
+
+    /**
+     *   同步本地信息给服务器
+     */
+    public static void doUpdate() {
+        MessageInfo info = new MessageInfo();
+        info.setType(MessageEntiy.TYPE_DO_UPDATE);
+        send(info);
+    }
 }

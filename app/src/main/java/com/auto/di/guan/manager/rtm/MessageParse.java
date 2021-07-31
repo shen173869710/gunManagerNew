@@ -12,6 +12,7 @@ import com.auto.di.guan.manager.event.ActivityItemEvent;
 import com.auto.di.guan.manager.event.AutoTimeEvent;
 import com.auto.di.guan.manager.event.DateChangeEvent;
 import com.auto.di.guan.manager.event.LoginEvent;
+import com.auto.di.guan.manager.event.UpdateEvent;
 import com.auto.di.guan.manager.socket.SocketBengEvent;
 import com.auto.di.guan.manager.socket.SocketResult;
 import com.auto.di.guan.manager.utils.FloatStatusUtil;
@@ -169,6 +170,9 @@ public class MessageParse {
                 if (info.getMeteoRespones() != null && info.geteDepthRespones() != null) {
                     EventBus.getDefault().post(new ActivityItemEvent(info.getMeteoRespones(), info.geteDepthRespones()));
                 }
+                break;
+            case MessageEntiy.TYPE_DO_UPDATE:
+                EventBus.getDefault().post(new UpdateEvent(info.getSnType()));
                 break;
         }
     }

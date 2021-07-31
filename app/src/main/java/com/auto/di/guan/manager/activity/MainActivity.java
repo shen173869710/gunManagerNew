@@ -188,7 +188,7 @@ public class MainActivity extends IBaseActivity {
             return;
         }
         if (event.isAout()) {
-            FloatStatusUtil.getInstance().onGroupStatusEvent(info);
+            FloatStatusUtil.getInstance().onGroupStatusEvent(event.getGroupInfo());
         }else{
             FloatStatusUtil.getInstance().onAutoCountEvent(event.getGroupInfo());
         }
