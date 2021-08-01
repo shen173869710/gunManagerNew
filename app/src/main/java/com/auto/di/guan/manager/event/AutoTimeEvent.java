@@ -7,8 +7,23 @@ import com.auto.di.guan.manager.db.GroupInfo;
  */
 public class AutoTimeEvent {
     private GroupInfo groupInfo;
+
+    private boolean isAout;
     public AutoTimeEvent(GroupInfo groupInfo) {
         this.groupInfo = groupInfo;
+    }
+
+    public AutoTimeEvent(GroupInfo groupInfo, boolean isAout) {
+        this.groupInfo = groupInfo;
+        this.isAout = isAout;
+    }
+
+    public boolean isAout() {
+        return isAout;
+    }
+
+    public void setAout(boolean aout) {
+        isAout = aout;
     }
 
     public GroupInfo getGroupInfo() {

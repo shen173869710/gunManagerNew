@@ -44,6 +44,7 @@
             android:background="@drawable/bg_item_car_num_pressed"
             android:gravity="center"
             android:maxLength="3"
+            android:textColor="@color/black"
             android:inputType="number"
             android:orientation="horizontal" />
     </LinearLayout>

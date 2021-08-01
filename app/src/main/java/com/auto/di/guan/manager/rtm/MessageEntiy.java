@@ -70,4 +70,7 @@ public class MessageEntiy {
     /**农田信息item点击事件**/
     public static final int TYPE_FARMLAND_CLICK = 10002;
 
+
+    /**同步信息安妮**/
+    public static final int TYPE_DO_UPDATE = 77777777;
 }

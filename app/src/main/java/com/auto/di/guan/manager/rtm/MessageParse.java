@@ -12,6 +12,7 @@ import com.auto.di.guan.manager.event.ActivityItemEvent;
 import com.auto.di.guan.manager.event.AutoTimeEvent;
 import com.auto.di.guan.manager.event.DateChangeEvent;
 import com.auto.di.guan.manager.event.LoginEvent;
+import com.auto.di.guan.manager.event.UpdateEvent;
 import com.auto.di.guan.manager.socket.SocketBengEvent;
 import com.auto.di.guan.manager.socket.SocketResult;
 import com.auto.di.guan.manager.utils.FloatStatusUtil;
@@ -170,6 +171,9 @@ public class MessageParse {
                     EventBus.getDefault().post(new ActivityItemEvent(info.getMeteoRespones(), info.geteDepthRespones()));
                 }
                 break;
+            case MessageEntiy.TYPE_DO_UPDATE:
+                EventBus.getDefault().post(new UpdateEvent(info.getSnType()));
+                break;
         }
     }
     /**
@@ -268,7 +272,8 @@ public class MessageParse {
          */
         GroupInfo info = GroupInfoSql.getRunGroup();
         if(info != null) {
-            FloatStatusUtil.getInstance().onGroupStatusEvent(info);
+//            FloatStatusUtil.getInstance().onGroupStatusEvent(info);
+            EventBus.getDefault().post(new AutoTimeEvent(info,true));
         }
     }
 
@@ -279,6 +284,5 @@ public class MessageParse {
         LogUtils.i(TAG, "收到自动轮灌------------时间信息同步");
         EventBus.getDefault().post(new AutoTimeEvent(groupInfo));
         /*****同步自动轮灌时间******/
-        FloatStatusUtil.getInstance().onAutoCountEvent(groupInfo);
     }
 }

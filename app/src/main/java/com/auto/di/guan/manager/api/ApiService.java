@@ -38,6 +38,13 @@ public interface ApiService {
     /**
      *  发送预计信息
      * @return
+     *
+     *
+     * @NotBlank(message = "手机号码不能为空")
+     *  private String mobile;
+     *
+     *  @NotBlank(message = "短信内容不能为空")
+     *  private String content;
      */
     @FormUrlEncoded
     @POST("/api/send/smsMsg")

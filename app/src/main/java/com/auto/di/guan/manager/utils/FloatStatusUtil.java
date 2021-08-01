@@ -163,11 +163,11 @@ public class FloatStatusUtil {
      * @param info
      */
     private void initProgess(GroupInfo info) {
-        LogUtils.e(TAG, "同步组信息"+(new Gson().toJson(info)));
+        LogUtils.i(TAG, "initProgess ="+new Gson().toJson(info));
         if (info != null && info.getGroupStatus() == Entiy.GROUP_STATUS_OPEN) {
             groupInfo = info;
             if (donutProgress != null) {
-                LogUtils.e(TAG, "更新进度"+(new Gson().toJson(info)));
+                LogUtils.i(TAG, "更新进度"+(new Gson().toJson(info)));
                 donutProgress.setVisibility(View.VISIBLE);
                 donutProgress.setMax(groupInfo.getGroupTime());
                 donutProgress.setProgress(groupInfo.getGroupRunTime());
@@ -177,7 +177,7 @@ public class FloatStatusUtil {
             controlInfos.clear();
             if (donutProgress != null) {
                 textView.setText("无设备运行");
-                LogUtils.e(TAG, "更新状态");
+                LogUtils.i(TAG, "更新状态");
                 donutProgress.setVisibility(View.INVISIBLE);
             }
         }
