@@ -7,9 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.auto.di.guan.manager.R;
 import com.auto.di.guan.manager.adapter.MyGridOpenAdapter;
 import com.auto.di.guan.manager.app.BaseApp;
+import com.auto.di.guan.manager.db.ControlInfo;
+import com.auto.di.guan.manager.db.DeviceInfo;
 import com.auto.di.guan.manager.entity.Entiy;
 import com.auto.di.guan.manager.event.DateChangeEvent;
 import com.auto.di.guan.manager.utils.LogUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -19,7 +24,7 @@ public class FragmentTab3 extends BaseFragment {
     RecyclerView fragment3List;
     private MyGridOpenAdapter adapter;
 
-
+    List<DeviceInfo> deviceInfos = new ArrayList<>();
     @Override
     public int setLayout() {
         return R.layout.fragment_3;
@@ -27,9 +32,11 @@ public class FragmentTab3 extends BaseFragment {
 
     @Override
     public void init() {
+        deviceInfos.clear();
         LinearLayoutManager manager = new GridLayoutManager(activity, Entiy.GRID_COLUMNS);
         fragment3List.setLayoutManager(manager);
-        adapter = new MyGridOpenAdapter(BaseApp.getDeviceInfos());
+        deviceInfos.addAll(BaseApp.getDeviceInfos());
+        adapter = new MyGridOpenAdapter(deviceInfos);
         fragment3List.setAdapter(adapter);
     }
 
@@ -37,7 +44,9 @@ public class FragmentTab3 extends BaseFragment {
     public void dataChange(DateChangeEvent event) {
         LogUtils.e("fragmenttab3", "更新数据");
        if (adapter != null) {
-           adapter.setNewData(BaseApp.getDeviceInfos());
+           deviceInfos.clear();
+           deviceInfos.addAll(BaseApp.getDeviceInfos());
+           adapter.notifyDataSetChanged();
        }
     }
 

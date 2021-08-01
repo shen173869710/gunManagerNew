@@ -23,10 +23,11 @@ import com.baidu.mapapi.SDKInitializer;
 import com.facebook.stetho.Stetho;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
-import com.tencent.bugly.crashreport.CrashReport;
+//import com.tencent.bugly.crashreport.CrashReport;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 /**
@@ -76,7 +77,7 @@ public class BaseApp extends Application {
         FloatWindowUtil.getInstance().initFloatWindow(this);
         FloatStatusUtil.getInstance().initFloatWindow(this);
 //        CrashHandler.getInstance().init(this);
-        CrashReport.initCrashReport(getApplicationContext(), "cc201614d7", true);
+//        CrashReport.initCrashReport(getApplicationContext(), "cc201614d7", true);
 
         mChatManager = new ChatManager(this);
         mChatManager.init();
@@ -230,6 +231,17 @@ public class BaseApp extends Application {
 
     public static ArrayList<GroupInfo> getGroupInfos() {
         return groupInfos;
+    }
+
+    public static ArrayList<GroupInfo> getGroupInfosSetting() {
+        int size = groupInfos.size();
+        ArrayList<GroupInfo> infos = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            if (groupInfos.get(i).getGroupLevel() > 0) {
+                infos.add(groupInfos.get(i));
+            }
+        }
+        return infos;
     }
 
     public static void setGroupInfos(ArrayList<GroupInfo> groupInfos) {

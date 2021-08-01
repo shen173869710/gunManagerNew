@@ -20,7 +20,7 @@ public class FragmentTab4 extends BaseFragment {
     ExpandableListView fragment4Expand;
 
 	private List<GroupList> groupLists = new ArrayList<>();
-	private  List<GroupInfo> groupInfos;
+	private  List<GroupInfo> groupInfos = new ArrayList<>();
 
     private GroupExpandableListViewaAdapter31 adapter;
 
@@ -31,13 +31,13 @@ public class FragmentTab4 extends BaseFragment {
 
     @Override
     public void init() {
-
+		groupInfos.clear();
+		groupLists.clear();
 		adapter = new GroupExpandableListViewaAdapter31(activity, groupLists);
 		fragment4Expand.setAdapter(adapter);
 		fragment4Expand.setGroupIndicator(null);
+		groupInfos.addAll(BaseApp.getGroupInfos());
 
-		groupInfos = BaseApp.getGroupInfos();
-		groupLists.clear();
 		int size = groupInfos.size();
 		if (size > 0) {
 			for (int i = 0; i < size; i++) {

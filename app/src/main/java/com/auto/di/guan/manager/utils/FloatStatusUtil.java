@@ -26,6 +26,7 @@ import com.auto.di.guan.manager.floatWindow.FloatWindow;
 import com.auto.di.guan.manager.floatWindow.MoveType;
 import com.auto.di.guan.manager.floatWindow.Screen;
 import com.github.lzyzsd.circleprogress.DonutProgress;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -162,9 +163,11 @@ public class FloatStatusUtil {
      * @param info
      */
     private void initProgess(GroupInfo info) {
+        LogUtils.e(TAG, "同步组信息"+(new Gson().toJson(info)));
         if (info != null && info.getGroupStatus() == Entiy.GROUP_STATUS_OPEN) {
             groupInfo = info;
             if (donutProgress != null) {
+                LogUtils.e(TAG, "更新进度"+(new Gson().toJson(info)));
                 donutProgress.setVisibility(View.VISIBLE);
                 donutProgress.setMax(groupInfo.getGroupTime());
                 donutProgress.setProgress(groupInfo.getGroupRunTime());
@@ -174,6 +177,7 @@ public class FloatStatusUtil {
             controlInfos.clear();
             if (donutProgress != null) {
                 textView.setText("无设备运行");
+                LogUtils.e(TAG, "更新状态");
                 donutProgress.setVisibility(View.INVISIBLE);
             }
         }

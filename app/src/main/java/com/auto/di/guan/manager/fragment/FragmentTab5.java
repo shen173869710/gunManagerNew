@@ -59,7 +59,7 @@ public class FragmentTab5 extends BaseFragment {
 	private void initData() {
 		groupInfos.clear();
 		groupLists.clear();
-		groupInfos = BaseApp.getGroupInfos();
+		groupInfos.addAll(BaseApp.getGroupInfosSetting());
 		int size = groupInfos.size();
 		if (size > 0) {
 			for (int i = 0; i < size; i++) {

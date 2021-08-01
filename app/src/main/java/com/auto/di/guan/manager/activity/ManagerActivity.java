@@ -25,6 +25,7 @@ import com.auto.di.guan.manager.utils.FloatStatusUtil;
 import com.auto.di.guan.manager.utils.FloatWindowUtil;
 import com.auto.di.guan.manager.utils.LogUtils;
 import com.auto.di.guan.manager.utils.ToastUtils;
+import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -205,7 +206,7 @@ public class ManagerActivity extends IBaseActivity<ManagerPresenter> implements 
             User user = users.get(i);
             if (event.getPeerId().equals(user.getUserId().toString())) {
                 user.setLoginStatus(event.getStatus());
-                LogUtils.e("ManagerActivity", "用户在线");
+                LogUtils.e("ManagerActivity", "用户在线"+new Gson().toJson(event));
             }
         }
 

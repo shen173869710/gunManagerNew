@@ -13,6 +13,7 @@ import com.auto.di.guan.manager.db.GroupInfo;
 import com.auto.di.guan.manager.db.GroupList;
 import com.auto.di.guan.manager.db.sql.ControlInfoSql;
 import com.auto.di.guan.manager.event.DateChangeEvent;
+import com.auto.di.guan.manager.utils.LogUtils;
 import com.auto.di.guan.manager.utils.NoFastClickUtils;
 
 import java.util.ArrayList;
@@ -57,8 +58,11 @@ public class FragmentTab2 extends BaseFragment {
 	private void initData() {
 		groupInfos.clear();
 		groupLists.clear();
-		groupInfos = BaseApp.getGroupInfos();
+		groupInfos.addAll(BaseApp.getGroupInfosSetting());
+
+
 		int size = groupInfos.size();
+		LogUtils.e("11","groupsizw = "+size);
 		if (size > 0) {
 			for (int i = 0; i < size; i++) {
 				List<ControlInfo>clist = ControlInfoSql.queryControlList(groupInfos.get(i).getGroupId());
