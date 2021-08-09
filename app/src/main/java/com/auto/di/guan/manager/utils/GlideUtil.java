@@ -71,7 +71,7 @@ public class GlideUtil {
      * @param imageView
      */
     public  static void loadGroupImage(ImageView imageView, int getGroupId) {
-        if (getGroupId <= 1 || getGroupId > 50 ) {
+        if (getGroupId < 1 || getGroupId > 50 ) {
             return;
         }
         Glide.with(BaseApp.getContext()).load(Entiy.GROUP_IMAGE[getGroupId]).into(imageView);

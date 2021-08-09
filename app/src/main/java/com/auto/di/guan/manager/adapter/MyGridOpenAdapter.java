@@ -87,7 +87,7 @@ public class MyGridOpenAdapter extends BaseQuickAdapter<DeviceInfo, BaseViewHold
                 grid_item_left_group.setVisibility(View.GONE);
             }else {
                 grid_item_left_group.setVisibility(View.VISIBLE);
-                GlideUtil.loadGroupImage(grid_item_right_group, controlInfo0.getValveGroupId());
+                GlideUtil.loadGroupImage(grid_item_left_group, controlInfo0.getValveGroupId());
             }
 
             if (controlInfo0.getValveStatus() == 0) {

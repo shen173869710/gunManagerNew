@@ -74,9 +74,20 @@ public class FloatStatusUtil {
             @Override
             public void onClick(View v) {
                 if (controlInfos.size() == 0) {
-                    ToastUtils.showLongToast("当前没有运行的设备");
-                    return;
+                    if (groupInfo != null && groupInfo.getGroupStatus() == 1) {
+                        List<ControlInfo> list  = ControlInfoSql.queryControlList(groupInfo.getGroupId());
+                        if (list.size() > 0) {
+                            controlInfos.clear();
+                            controlInfos.addAll(list);
+                        }
+                    }
+                    if (controlInfos.size() == 0) {
+                        linearLayout.setVisibility(View.VISIBLE);
+                        ToastUtils.showLongToast("当前没有运行的设备");
+                        return;
+                    }
                 }
+
                 if (mListView.getVisibility() == View.VISIBLE) {
                     mListView.setVisibility(View.GONE);
                     linearLayout.setVisibility(View.GONE);
@@ -114,7 +125,7 @@ public class FloatStatusUtil {
             FloatWindow.with(BaseApp.getInstance())
                     .setView(view)
                     .setHeight(size)
-                    .setWidth(size)
+//                    .setWidth(size)
                     .setX(Screen.width, 0.9f)
                     .setY(Screen.height, 0.5f)
                     .setFilter(true, MainActivity.class, GroupStatusActivity.class)
@@ -171,7 +182,8 @@ public class FloatStatusUtil {
                 donutProgress.setVisibility(View.VISIBLE);
                 donutProgress.setMax(groupInfo.getGroupTime());
                 donutProgress.setProgress(groupInfo.getGroupRunTime());
-                textView.setText("时长:" + groupInfo.getGroupTime() + "\n运行:" + info.getGroupRunTime());
+
+                textView.setText("时长:" + secToTime(groupInfo.getGroupTime()) + "\n运行:" + secToTime(info.getGroupRunTime()));
             }
         }else {
             controlInfos.clear();
@@ -182,4 +194,40 @@ public class FloatStatusUtil {
             }
         }
     }
+
+
+    public  String secToTime(int time) {
+        String timeStr = null;
+        int hour = 0;
+        int minute = 0;
+        int second = 0;
+        if (time <= 0)
+            return "00:00";
+        else {
+            minute = time / 60;
+            if (minute < 60) {
+                second = time % 60;
+                timeStr = unitFormat(minute) + ":" + unitFormat(second);
+            } else {
+                hour = minute / 60;
+                if (hour > 99)
+                    return "99:59:59";
+                minute = minute % 60;
+                second = time - hour * 3600 - minute * 60;
+                timeStr = unitFormat(hour) + ":" + unitFormat(minute) + ":" + unitFormat(second);
+            }
+        }
+        return timeStr;
+    }
+
+    public  String unitFormat(int i) {
+        String retStr = null;
+        if (i >= 0 && i < 10)
+            retStr = "0" + i;
+        else
+            retStr = "" + i;
+        return retStr;
+    }
+
+
 }

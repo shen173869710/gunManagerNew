@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:layout_centerInParent="true"
-            android:textSize="@dimen/main_text_16"
+            android:textSize="@dimen/main_text_14"
             />
     </RelativeLayout>
     <LinearLayout
@@ -47,7 +47,7 @@
         android:divider="@color/line"
         android:scrollbars="horizontal"
         android:layout_centerVertical="true"
-        android:paddingTop="15dp"
+        android:paddingTop="25dp"
         android:visibility="gone"
         />
     </LinearLayout>
