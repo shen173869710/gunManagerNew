@@ -138,6 +138,7 @@ public class FloatStatusUtil {
                 FloatWindow.get(TAG).show();
             }
         }
+        initProgess(null);
     }
 
     public void distory() {
